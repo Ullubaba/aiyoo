@@ -1,0 +1,29 @@
+
+# Load the Iris dataset (make sure iris.csv is in the same directory)
+file_path = "iris.csv"
+data = pd.read_csv(file_path)
+
+# Display the first few rows of the dataset to confirm structure (optional)
+print("First few rows of the dataset:")
+print(data.head())
+
+# Filter the dataset by species
+species_list = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
+
+# Loop through each species and calculate statistics
+for species in species_list:
+    print(f"\nStatistical details for {species}:")
+    species_data = data[data['species'] == species].drop(columns=['species'])
+    
+    # Calculate basic statistics
+    mean = species_data.mean()
+    std_dev = species_data.std()
+    percentiles = species_data.quantile([0.25, 0.5, 0.75])
+    
+    # Display statistics
+    print("Mean:")
+    print(mean)
+    print("\nStandard Deviation:")
+    print(std_dev)
+    print("\nPercentiles (25th, 50th, 75th):")
+    print(percentiles)
