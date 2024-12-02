@@ -1,0 +1,39 @@
+import pandas as pd
+
+# Load the Iris dataset
+# Assuming iris.csv is in the same directory as the script
+iris_data = pd.read_csv('iris.csv')
+
+# Display the first few rows to understand the dataset structure (optional)
+print("Dataset Sample:")
+print(iris_data.head())
+
+# Filter data for Iris-setosa and Iris-versicolor species
+setosa_data = iris_data[iris_data['species'] == 'Iris-setosa']
+versicolor_data = iris_data[iris_data['species'] == 'Iris-versicolor']
+
+# Calculate and display statistical details for Iris-setosa
+print("\nStatistical Details for Iris-setosa:")
+print(setosa_data.describe())
+
+# Calculate and display statistical details for Iris-versicolor
+print("\nStatistical Details for Iris-versicolor:")
+print(versicolor_data.describe())
+
+# Additionally calculate specific statistics if needed
+setosa_mean = setosa_data.mean(numeric_only=True)
+setosa_std = setosa_data.std(numeric_only=True)
+versicolor_mean = versicolor_data.mean(numeric_only=True)
+versicolor_std = versicolor_data.std(numeric_only=True)
+
+print("\nMean for Iris-setosa:")
+print(setosa_mean)
+
+print("\nStandard Deviation for Iris-setosa:")
+print(setosa_std)
+
+print("\nMean for Iris-versicolor:")
+print(versicolor_mean)
+
+print("\nStandard Deviation for Iris-versicolor:")
+print(versicolor_std)
